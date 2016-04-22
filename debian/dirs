@@ -1,0 +1,7 @@
+apps/utserver/app-config/logs
+apps/utserver/app-config/downloads/completed
+apps/utserver/app-config/downloads/downloading
+apps/utserver/app-config/downloads/dottorrent
+apps/utserver/app-config/downloads/autoload
+apps/utserver/bin
+usr/share/doc/utserver

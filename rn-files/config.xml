@@ -1,0 +1,13 @@
+<Application resource-id="utserver">
+  <Version>3.3.30470</Version>
+  <Name>µTorrent</Name>
+  <Author>Mhynlo</Author>
+  <RequireReboot>0</RequireReboot>
+  <LaunchURL>http://localhost:7574/gui</LaunchURL>
+  <ReservePort>7574</ReservePort>
+  <ConfigURL/>
+  <InfoURL>http://www.utorrent.com</InfoURL>
+  <DebianPackage>utserver</DebianPackage>
+  <ServiceName>fvapp-utserver.service</ServiceName>
+  <Description lang="en-us">The #1 BitTorrent download client on desktops worldwide; default username/password: admin/[blank]</Description>
+</Application>

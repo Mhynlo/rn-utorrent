@@ -1,0 +1,12 @@
+Source: utserver
+Section: contrib
+Priority: extra
+Maintainer: Mhynlo <mhynlok@gmail.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.6
+Homepage: http://www.utorrent.com
+
+Package: utserver
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}, readynasos (>= 6.2.2), libxml2-utils (>=2.8.0)
+Description: uTorrent Server

@@ -1,0 +1,19 @@
+#!/bin/sh -e
+# prerm for utserver
+
+set -e
+
+case "$1" in
+    remove|upgrade|deconfigure)
+        systemctl stop fvapp-utserver.service
+        systemctl disable fvapp-utserver.service || true
+        ;;
+    failed-upgrade)
+        ;;
+    *)
+        echo "prerm called with unknown argument \`$1'" >&2
+        exit 0
+    ;;
+esac
+
+exit 0

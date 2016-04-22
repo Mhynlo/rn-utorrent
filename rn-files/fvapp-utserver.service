@@ -1,0 +1,18 @@
+[Unit]
+Description=uTorrent
+After=apache2.target
+
+[Service]
+ExecStart=/apps/utserver/bin/utserver -daemon -configfile /apps/utserver/app-config/utserver.conf -settingspath /apps/utserver/app-config -logfile /apps/utserver/app-config/logs/utserver.log -pidfile /var/run/utserver.pid
+Type=forking
+TimeoutSec=200
+KillMode=process
+Restart=on-failure
+Nice=18
+User=admin
+Group=admin
+PIDFile=/var/run/utserver.pid
+
+
+[Install]
+WantedBy=multi-user.target

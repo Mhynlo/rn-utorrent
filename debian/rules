@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+export DH_ALWAYS_EXCLUDE=.git
+
+DESTDIR = $(CURDIR)/debian/utserver
+
+%:
+	dh $@
+
+
+
+override_dh_install:
+	cp -R $(CURDIR)/rn-files/* ${DESTDIR}/apps/utserver
+	mkdir -p $(CURDIR)/ut-files
+	wget http://download.ap.bittorrent.com/track/beta/endpoint/utserver/os/linux-x64-debian-7-0 -O $(CURDIR)/ut-files/utserver.tar
+	tar -xf $(CURDIR)/ut-files/utserver.tar -C $(CURDIR)/ut-files/
+	cp $(CURDIR)/ut-files/utorrent*/utserver ${DESTDIR}/apps/utserver/bin/
+	cp $(CURDIR)/ut-files/utorrent*/webui.zip ${DESTDIR}/apps/utserver/app-config/
+	cp $(CURDIR)/ut-files/utorrent*/docs/* ${DESTDIR}/usr/share/doc/utserver/
+	cp ${DESTDIR}/usr/share/doc/utserver/license.txt ${DESTDIR}/usr/share/doc/utserver/copyright
+	cp -R $(CURDIR)/rn-files/* ${DESTDIR}/apps/utserver/

@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+case "$1" in
+    purge)
+       find /apps/utserver/* -maxdepth 0 -type 'f' | grep -v "app-config" | xargs rm -f
+       find /apps/utserver/* -maxdepth 0 -type 'd' | grep -v "app-config" | xargs rm -rf
+       rm /apps/utserver/.localapp
+
+       event_push app readynasd '<delete-s resource-type="LocalApp" resource-id="LocalApp"><LocalApp appname="utserver" success="1" reboot="0"/></delete-s>' 0 0
+       ;;
+    remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+       ;;
+
+    *)
+        echo "postrm called with unknown argument \`$1'" >&2
+        exit 0
+
+esac
