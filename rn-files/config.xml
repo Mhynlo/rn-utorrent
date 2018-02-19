@@ -1,5 +1,5 @@
 <Application resource-id="utserver">
-  <Version>3.3.30470</Version>
+  <Version>3.3.30470-ml1</Version>
   <Name>µTorrent</Name>
   <Author>Mhynlo</Author>
   <RequireReboot>0</RequireReboot>
