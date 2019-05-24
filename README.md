@@ -1,8 +1,8 @@
-##rn-utorrent
+## rn-utorrent
 
 Build process pulls the tar file from uTorrent and builds the ReadyNAS App.
 
 
-####Build process:
+#### Build process:
 
 `debuild -us -uc`
